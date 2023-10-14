@@ -16,11 +16,11 @@ RegisterCommand("evidence", function()
         {type = 'input', label = 'Evidence Locker', description = 'Choose which locker you wish to open', required = true}
     })      
 
-    TriggerServerEvent("inventory:server:OpenInventory", "stash", Lang:t('info.current_evidence_stash', {value = input[1]}), {
+    TriggerServerEvent("inventory:server:OpenInventory", "stash", "Evidence Stash | ".. input[1], {
         maxweight = 4000000,
         slots = 500,
     })
-    TriggerEvent("inventory:client:SetCurrentStash", Lang:t('info.current_evidence_stash', {value = input[1]}))
+    TriggerEvent("inventory:client:SetCurrentStash", "Evidence Stash | ".. input[1])
         TriggerServerEvent("InteractSound_SV:PlayOnSource", "StashOpen", 0.5)
     
 else
